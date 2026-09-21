@@ -1,0 +1,341 @@
+/* Variables de color */
+:root {
+    --color-primario: #2563eb;
+    --color-secundario: #64748b;
+    --color-peligro: #dc2626;
+    --color-exito: #16a34a;
+    --color-alerta: #ea580c;
+    --color-fondo: #f8fafc;
+    --color-superficie: #ffffff;
+    --color-texto: #1e293b;
+    --color-texto-claro: #64748b;
+    --radio-borde: 12px;
+    --sombra: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --sombra-elevada: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset y base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Encabezado */
+header {
+    background: var(--color-superficie);
+    padding: 20px;
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Badges de estado */
+.badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-desarmada {
+    background: #dbeafe;
+    color: var(--color-primario);
+}
+
+.badge-armada {
+    background: #fef3c7;
+    color: #ca8a04;
+}
+
+.badge-alerta {
+    background: #fee2e2;
+    color: var(--color-peligro);
+    animation: pulso 1.5s ease-in-out infinite;
+}
+
+@keyframes pulso {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Paneles */
+section {
+    background: var(--color-superficie);
+    padding: 24px;
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra);
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: var(--color-texto);
+}
+
+.descripcion {
+    color: var(--color-texto-claro);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+/* Estado actual */
+.estado-actual {
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 24px;
+}
+
+.icono-estado {
+    font-size: 72px;
+    margin-bottom: 16px;
+}
+
+#mensaje-estado {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-texto-claro);
+}
+
+/* Botones */
+.btn {
+    width: 100%;
+    padding: 16px 24px;
+    border: none;
+    border-radius: var(--radio-borde);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-elevada);
+}
+
+.btn:not(:disabled):active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: var(--color-primario);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--color-secundario);
+    color: white;
+}
+
+.btn-emergencia {
+    background: var(--color-peligro);
+    color: white;
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+
+.btn-small {
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+.botones-control {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Panel de alerta */
+.panel-alerta {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    animation: alertaEntrada 0.3s ease-out;
+}
+
+@keyframes alertaEntrada {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.alerta-contenido {
+    text-align: center;
+}
+
+.alerta-icono {
+    font-size: 80px;
+    animation: pulso 1s ease-in-out infinite;
+}
+
+.panel-alerta h2 {
+    color: white;
+    margin: 16px 0;
+    font-size: 24px;
+}
+
+.panel-alerta p {
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+/* Simulador de sensores */
+.sensores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.sensor-card {
+    background: var(--color-fondo);
+    padding: 20px;
+    border-radius: var(--radio-borde);
+    text-align: center;
+}
+
+.sensor-icono {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.sensor-card h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.sensor-card p {
+    font-size: 13px;
+    color: var(--color-texto-claro);
+    margin-bottom: 12px;
+}
+
+.sensor-estado {
+    margin-top: 12px;
+    padding: 8px;
+    background: white;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--color-texto-claro);
+}
+
+.sensor-estado.activo {
+    background: #fee2e2;
+    color: var(--color-peligro);
+    font-weight: 600;
+}
+
+/* Historial */
+.historial-lista {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+}
+
+.evento-item {
+    padding: 12px;
+    background: var(--color-fondo);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.evento-tipo {
+    font-weight: 600;
+    color: var(--color-primario);
+    display: inline-block;
+    min-width: 80px;
+}
+
+.evento-tipo.intrusion {
+    color: var(--color-peligro);
+}
+
+.evento-timestamp {
+    font-size: 12px;
+    color: var(--color-texto-claro);
+    margin-top: 4px;
+}
+
+.texto-placeholder {
+    text-align: center;
+    color: var(--color-texto-claro);
+    padding: 20px;
+}
+
+.texto-pequeño {
+    font-size: 13px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--color-texto-claro);
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 20px;
+    }
+    
+    section {
+        padding: 16px;
+    }
+    
+    .estado-actual {
+        padding: 20px;
+    }
+    
+    .icono-estado {
+        font-size: 56px;
+    }
+    
+    .sensores-grid {
+        grid-template-columns: 1fr;
+    }
+}

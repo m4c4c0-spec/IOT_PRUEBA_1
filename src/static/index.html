@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarma Antirrobo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <header>
+            <h1>🏠 Alarma Antirrobo</h1>
+            <div id="estado-badge" class="badge badge-desarmada">Desarmada</div>
+        </header>
+
+        <!-- Panel de control principal -->
+        <section class="panel-control">
+            <h2>Control de Alarma</h2>
+            
+            <div class="estado-actual">
+                <div class="icono-estado" id="icono-estado">🔓</div>
+                <p id="mensaje-estado">Sistema desarmado</p>
+            </div>
+
+            <div class="botones-control">
+                <button id="btn-armar" class="btn btn-primary">
+                    🔒 Armar Alarma
+                </button>
+                <button id="btn-desarmar" class="btn btn-secondary" disabled>
+                    🔓 Desarmar Alarma
+                </button>
+            </div>
+        </section>
+
+        <!-- Panel de alerta -->
+        <section class="panel-alerta" id="panel-alerta" style="display: none;">
+            <div class="alerta-contenido">
+                <div class="alerta-icono">🚨</div>
+                <h2>¡INTRUSIÓN DETECTADA!</h2>
+                <p>Se ha detectado movimiento no autorizado en su hogar</p>
+                
+                <a href="tel:133" class="btn btn-emergencia">
+                    📞 Llamar Carabineros (133)
+                </a>
+                
+                <button id="btn-silenciar" class="btn btn-secondary">
+                    🔇 Silenciar Alerta
+                </button>
+            </div>
+        </section>
+
+        <!-- Simulador de sensores -->
+        <section class="panel-simulador">
+            <h2>🔧 Simulador de Sensores</h2>
+            <p class="descripcion">
+                Simula el PIR y la puerta sin placa. En Arduino UNO el control
+                inalámbrico es el mismo del semáforo del curso: HC-05 y comandos
+                A (armar), D (desarmar), E (estado).
+            </p>
+            
+            <div class="sensores-grid">
+                <div class="sensor-card">
+                    <div class="sensor-icono">🚶</div>
+                    <h3>Sensor PIR</h3>
+                    <p>Detector de movimiento</p>
+                    <button id="btn-simular-movimiento" class="btn btn-small">
+                        Simular Movimiento
+                    </button>
+                    <div id="estado-pir" class="sensor-estado">Sin movimiento</div>
+                </div>
+                
+                <div class="sensor-card">
+                    <div class="sensor-icono">🚪</div>
+                    <h3>Sensor Puerta</h3>
+                    <p>Contacto magnético</p>
+                    <button id="btn-simular-puerta" class="btn btn-small">
+                        Abrir Puerta
+                    </button>
+                    <div id="estado-puerta" class="sensor-estado">Puerta cerrada</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historial de eventos -->
+        <section class="panel-historial">
+            <h2>📋 Historial de Eventos</h2>
+            <div id="historial-eventos" class="historial-lista">
+                <p class="texto-placeholder">No hay eventos recientes</p>
+            </div>
+            <button id="btn-actualizar-historial" class="btn btn-small btn-secondary">
+                🔄 Actualizar
+            </button>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Sistema de Alarma Antirrobo - Proyecto Educativo</p>
+            <p class="texto-pequeño">Analista Programador - Chile 🇨🇱</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
