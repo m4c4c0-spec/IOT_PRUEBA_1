@@ -23,6 +23,7 @@ def parsear_linea(linea: str) -> Optional[Dict[str, str]]:
     Ejemplos:
     - "ESTADO ARMADA" -> {"tipo": "estado", "valor": "armada"}
     - "EVENTO PIR" -> {"tipo": "evento", "valor": "pir"}
+    (en hardware el HC-SR04 sustituye al PIR; el texto del protocolo no cambia)
     - "ALERTA INTRUSION" -> {"tipo": "alerta", "valor": "intrusion"}
     - "OK ARMAR" -> {"tipo": "ok", "valor": "armar"}
     """

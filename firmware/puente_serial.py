@@ -82,7 +82,7 @@ def procesar_mensaje(mensaje, serial_uno):
 
     if tipo == "evento" and valor == "pir":
         llamar_api("/api/simular/movimiento", "POST")
-        print("PIR del UNO → alerta en la app")
+        print("HC-SR04 del UNO → alerta en la app")
         return
 
     if tipo == "evento" and valor == "puerta":

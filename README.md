@@ -221,7 +221,7 @@ Todos los tests deben pasar ✅ antes de continuar a la siguiente sesión.
 1. Comparar `firmware/ejemplos/semaforo_bluetooth.ino` con `/home/cocus/Documentos/proyectos/IOT_PRUEBA_1/alarma_uno/alarma_uno.ino`
 2. Placa **Arduino Uno**, 9600 baud. Comandos de un carácter: `A` armar, `D` desarmar, `E` estado
 3. LEDs: verde = desarmada, amarillo = armada, rojo = alerta (pines 11, 12 y 13)
-4. Disparar el PIR y comprobar `ALERTA INTRUSION` por USB y por Bluetooth
+4. Acercar la mano al HC-SR04 (< 20 cm) y comprobar `ALERTA INTRUSION` por USB y por Bluetooth
 5. Cambiar el PIN de fábrica del HC-05 (no dejar `1234`)
 
 El celular habla con el UNO por HC-05. La app web sigue mostrando el `tel:133`.
@@ -248,7 +248,7 @@ El celular habla con el UNO por HC-05. La app web sigue mostrando el `tel:133`.
 - **Backend:** Python 3, Flask (micro-framework web)
 - **Frontend:** HTML5, CSS3, JavaScript (vanilla, sin frameworks)
 - **Testing:** pytest
-- **Hardware (opcional):** Arduino UNO, HC-05, PIR, contacto de puerta, LEDs 11/12/13, buzzer
+- **Hardware (opcional):** Arduino UNO, HC-SR04 (reemplaza al PIR; sin reed switch), LEDs 11/12/13, buzzer; HC-05 opcional
 
 ## 💡 Conceptos Aprendidos
 

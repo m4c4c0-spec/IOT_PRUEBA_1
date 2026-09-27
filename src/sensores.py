@@ -10,9 +10,8 @@ from typing import Dict
 
 class SensorPIR:
     """
-    Simulador de sensor PIR (Passive Infrared) para detectar movimiento.
-    En Arduino UNO el OUT del PIR va al pin 2
-    (ver /home/cocus/Documentos/proyectos/IOT_PRUEBA_1/alarma_uno).
+    Simulador de detección de presencia (en la placa real es un HC-SR04,
+    que reemplazó al PIR). Pines TRIG 7 y ECHO 6; ver alarma_uno.ino.
     """
     
     def __init__(self):
